@@ -21,9 +21,7 @@ class MovieViewSet(viewsets.ModelViewSet):
        if 'Movie_Name' in request.data:
            try:
                movie=Movie.objects.get(request.data['Movie_Name'])
-               response={'message':'This movie has already been created, you can add ratings,characters and directors by logging in.For that, go to http://127.0.0.1:8000/api/login'}
-               #if 'Movie_Ratings' and 'Movie_Character' and 'Movie_Directors' in request.data:
-                   #if User.objects.get(request.data['username']) and User.objects:
+               response={'message':'This movie has already been created, you can add ratings,characters and directors by logging in.For that, go to http://localhost/api/login'}
 
 
 
@@ -46,7 +44,7 @@ class loggin_inViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     @action(detail=True,methods=['GET'])
     def redirecting_request(self,request):
-        return redirect('http://127.0.0.1:8000/api/movies/',permanent=True)
+        return redirect('http://localhost/api/movies/',permanent=True)
 
 
 
